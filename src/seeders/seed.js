@@ -1,3 +1,4 @@
+const Categories = require("../models/categories.models");
 const Courses = require("../models/courses.models");
 const UsersCourses = require("../models/users-courses.models");
 const Users = require("../models/users.models");
@@ -34,7 +35,24 @@ const usersCourses = [
   { userId: 4, courseId: 2 }
 ]
 
-
+const categories = [
+  { name: 'mate 1', courseId: 1 },
+  { name: 'mate 2', courseId: 1 },
+  { name: 'mate 3', courseId: 1 },
+  { name: 'mate 4', courseId: 1 },
+  { name: 'mate 5', courseId: 1 },
+  { name: 'ct 1', courseId: 2 },
+  { name: 'ct 2', courseId: 2 },
+  { name: 'ct 3', courseId: 2 },
+  { name: 'comu 1', courseId: 3 },
+  { name: 'comu 2', courseId: 3 },
+  { name: 'comu 3', courseId: 3 },
+  { name: 'soc 1', courseId: 4 },
+  { name: 'soc 2', courseId: 4 },
+  { name: 'CSS3', courseId: 5 },
+  { name: 'JavaScript', courseId: 5 },
+  { name: 'HTML5', courseId: 5 },
+]
 
 
 
@@ -47,6 +65,9 @@ db.sync({ force: true })
     }, 100)
     setTimeout(() => {
       usersCourses.forEach(uc => UsersCourses.create(uc));
-    }, 300)
+    }, 150)
+    setTimeout(() => {
+      categories.forEach(category=>Categories.create(category))
+    }, 200);
   })
   .catch(error => console.log(error));
