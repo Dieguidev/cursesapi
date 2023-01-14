@@ -1,4 +1,5 @@
 const Courses = require("../models/courses.models");
+const UsersCourses = require("../models/users-courses.models");
 const Users = require("../models/users.models");
 const db = require("../utils/database");
 
@@ -18,7 +19,20 @@ const courses = [
   { title: 'Tecnologia', description: 'vamos por mas', instructor: 'Ely' },
 ]
 
-
+const usersCourses = [
+  { userId: 1, courseId: 1 },
+  { userId: 2, courseId: 2 },
+  { userId: 3, courseId: 3 },
+  { userId: 4, courseId: 4 },
+  { userId: 1, courseId: 5 },
+  { userId: 2, courseId: 1 },
+  { userId: 3, courseId: 2 },
+  { userId: 4, courseId: 3 },
+  { userId: 1, courseId: 4 },
+  { userId: 2, courseId: 5 },
+  { userId: 3, courseId: 1 },
+  { userId: 4, courseId: 2 }
+]
 
 
 
@@ -29,7 +43,10 @@ db.sync({ force: true })
     console.log('sembrando datos');
     users.forEach(user => Users.create(user));
     setTimeout(() => {
-      courses.forEach(course=>Courses.create(course));
-    },100)
+      courses.forEach(course => Courses.create(course));
+    }, 100)
+    setTimeout(() => {
+      usersCourses.forEach(uc => UsersCourses.create(uc));
+    }, 300)
   })
   .catch(error => console.log(error));
