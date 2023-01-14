@@ -7,9 +7,6 @@ const Videos = require("./videos.models");
 
 const initModels = () => {
 
-  Categories,
-  Videos,
-
     //hasMany -> tiene muchios
   //belongsTo -> pertenece a
 
