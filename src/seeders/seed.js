@@ -2,6 +2,7 @@ const Categories = require("../models/categories.models");
 const Courses = require("../models/courses.models");
 const UsersCourses = require("../models/users-courses.models");
 const Users = require("../models/users.models");
+const Videos = require("../models/videos.models");
 const db = require("../utils/database");
 
 
@@ -54,7 +55,19 @@ const categories = [
   { name: 'HTML5', courseId: 5 },
 ]
 
+const videos = [
+  { title: 'introduccion', url: 'https://www.dfsddscsd.com', courseId: 1 },
+  { title: 'Razones', url: 'https://www.dfsddscsd.com', courseId: 1 },
+  { title: 'Vectores', url: 'https://www.dfsddscsd.com', courseId: 2 },
+  { title: 'Momentop de fuerza', url: 'https://www.dfsddscsd.com', courseId: 2 },
+  { title: 'Analisis de textos', url: 'https://www.dfsddscsd.com', courseId: 3 },
+  { title: 'El verbo', url: 'https://www.dfsddscsd.com', courseId: 3 },
+  { title: 'La sociedad', url: 'https://www.dfsddscsd.com', courseId: 4 },
+  { title: 'La realidad Nacional', url: 'https://www.dfsddscsd.com', courseId: 4 },
+  { title: 'Ciclo for', url: 'https://www.dfsddscsd.com', courseId: 5 },
+  { title: 'Scoope', url: 'https://www.dfsddscsd.com', courseId: 5 },
 
+]
 
 db.sync({ force: true })
   .then(() => {
@@ -62,12 +75,15 @@ db.sync({ force: true })
     users.forEach(user => Users.create(user));
     setTimeout(() => {
       courses.forEach(course => Courses.create(course));
-    }, 100)
+    }, 100);
     setTimeout(() => {
       usersCourses.forEach(uc => UsersCourses.create(uc));
-    }, 150)
+    }, 150);
     setTimeout(() => {
-      categories.forEach(category=>Categories.create(category))
+      categories.forEach(category => Categories.create(category))
     }, 200);
+    setTimeout(() => {
+      videos.forEach(video => Videos.create(video))
+    }, 250);
   })
   .catch(error => console.log(error));

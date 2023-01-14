@@ -20,7 +20,7 @@ const Videos= db.define('videos',{
       isUrl: true,
     }
   },
-  CourseId:{
+  courseId:{
     type: DataTypes.STRING,
     allowNull: false,
     field: 'course_id',
