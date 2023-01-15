@@ -57,7 +57,8 @@ class CoursesServices {
     }
   }
 
-  static async getCoursesWithAllcategories(id) {
+  //reto
+  static async getCoursesWithAllRelationships(id) {
     try {
       const result = await Courses.findOne({
         where: { id },

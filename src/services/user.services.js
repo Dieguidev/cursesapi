@@ -33,10 +33,11 @@ class Userservices {
         include: {
           model: UsersCourses,
           as: 'course',
-          attributes: { exclude: ["users_id", "course_id", "userId", "courseId"] },
+          attributes: ['id'],
           include: {
             model: Courses,
-            as: 'course'
+            as: 'course',
+            attributes: ['title']
           }
         }
       });

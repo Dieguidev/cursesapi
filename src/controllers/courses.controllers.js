@@ -44,14 +44,14 @@ const uUpdateCourse = async (req, res) => {
 }
 
 //reto
-const getCoursesWithAllcategories = async (req, res) => {
+const getCoursesWithAllRelationships = async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await CoursesServices.getCoursesWithAllcategories(id);
+    const result = await CoursesServices.getCoursesWithAllRelationships(id);
     res.json(result)
   } catch (error) {
     res.status(400).json(error.message);
   }
 }
 
-module.exports = { getAllCourses, getCoursesWithAllcategories, createCourse, getCoursesWithCategoriesVideos, uUpdateCourse }
+module.exports = { getAllCourses, getCoursesWithAllRelationships, createCourse, getCoursesWithCategoriesVideos, uUpdateCourse }

@@ -27,7 +27,7 @@ db.sync({ force: false })
 app.use('/api/v1', usersRoutes);
 app.use('/api/v1', coursesRoutes);
 app.use('/api/v1', videoRoutes);
-app.use('/api/v1', categoriesRoutes)
+app.use('/api/v1', categoriesRoutes);
 
 
 app.listen(PORT, () => {
