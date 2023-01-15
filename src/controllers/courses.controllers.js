@@ -22,7 +22,28 @@ const createCourse = async (req, res) => {
   }
 }
 
+const getCoursesWithCategoriesVideos = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await CoursesServices.getCoursesWithCategoriesVideos(id);
+    res.json(result)
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+}
 
+const uUpdateCourse = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {description} = req.body
+    const result = await CoursesServices.uUpdateCourse(description,id);
+    res.json(result);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+}
+
+//reto
 const getCoursesWithAllcategories = async (req, res) => {
   try {
     const { id } = req.params;
@@ -33,4 +54,4 @@ const getCoursesWithAllcategories = async (req, res) => {
   }
 }
 
-module.exports = { getAllCourses, getCoursesWithAllcategories, createCourse }
+module.exports = { getAllCourses, getCoursesWithAllcategories, createCourse, getCoursesWithCategoriesVideos,uUpdateCourse }

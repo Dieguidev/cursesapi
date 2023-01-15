@@ -3,7 +3,7 @@ const initModels = require('./models/init.models');
 const db = require('./utils/database');
 const usersRoutes = require('./routes/users.routes');
 const coursesRoutes = require('./routes/courses.routes');
-const userCousesRoutes = require('./routes/users-courses.routes');
+
 
 
 const app = express();
@@ -25,6 +25,7 @@ db.sync({ force: false })
 
 app.use('/api/v1', usersRoutes);
 app.use('/api/v1', coursesRoutes);
+
 
 
 app.listen(PORT, () => {

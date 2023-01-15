@@ -24,6 +24,39 @@ class CoursesServices {
     }
   }
 
+  static async getCoursesWithCategoriesVideos(id) {
+    try {
+      const result = await Courses.findOne({
+        where: { id },
+        include: [{
+          model: Categories,
+          as: 'category',
+          attributes: ['name']
+        },
+        {
+          model: Videos,
+          as: 'video',
+          attributes: ['title', 'url']
+        }
+        ]
+      });
+      return result;
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async uUpdateCourse (description, id){
+    try {
+      const result =await Courses.update({description},{
+        where:{id}
+      });
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async getCoursesWithAllcategories(id) {
     try {
       const result = await Courses.findOne({
@@ -39,11 +72,11 @@ class CoursesServices {
         {
           model: UsersCourses,
           as: 'users',
-          attributes:['id'],
-          include:{
+          attributes: ['id'],
+          include: {
             model: Users,
-            as:'user',
-            attributes:['firstName', 'lastName','password']
+            as: 'user',
+            attributes: ['firstName', 'lastName', 'password']
           }
         }
         ]

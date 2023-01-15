@@ -56,7 +56,6 @@ class Userservices {
   }
   static async updateUser(field, id) {
     try {
-     
       const result = await Users.update(field, {
         where: { id }
       });
