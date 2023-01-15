@@ -65,6 +65,15 @@ class Userservices {
       throw new error;
     }
   }
+
+  static async addCourseToUser(newCourseUser) {
+    try {
+      const result = await UsersCourses.create(newCourseUser);
+      return result;
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
 module.exports = Userservices;

@@ -52,4 +52,17 @@ const updateUser = async (req, res) => {
     res.status(400).json(error.message);
   }
 }
-module.exports = { getAllUsers, getUserId, getUserWithCurses, createUser, updateUser }
+
+const addCourseToUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { courseId } = req.body;
+    const newCourseUser = { userId: id, courseId}
+    const result = await Userservices.addCourseToUser(newCourseUser)
+    res.status(201).json(result)
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+}
+
+module.exports = { getAllUsers, getUserId, getUserWithCurses, createUser, updateUser,addCourseToUser }
