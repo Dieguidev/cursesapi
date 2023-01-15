@@ -69,7 +69,7 @@ const videos = [
 
 ]
 
-db.sync({ force: true })
+db.sync({ alter: true })
   .then(() => {
     console.log('sembrando datos');
     users.forEach(user => Users.create(user));

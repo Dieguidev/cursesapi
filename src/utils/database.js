@@ -7,7 +7,7 @@ const db = new Sequelize({
   port: "5432",
   password: "021087Mikeyla",     //tu propia contraseña
   dialect: "postgres",     //la base de datos que estamos usando
-  //logging: false,      //silencia toda la informacion que da el sequelize en la consola
+  logging: false,      //silencia toda la informacion que da el sequelize en la consola
 })
 
 module.exports = db;

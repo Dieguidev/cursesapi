@@ -10,7 +10,7 @@ const initModels = () => {
     //hasMany -> tiene muchios
   //belongsTo -> pertenece a
 
-  UsersCourses.belongsTo(Users, {as: 'author',foreignKey:'users_id'});
+  UsersCourses.belongsTo(Users, {as: 'user',foreignKey:'users_id'});
   Users.hasMany(UsersCourses, {as: 'course',foreignKey:'users_id'});
 
   UsersCourses.belongsTo(Courses,{as:'course',foreignKey:'course_id'});
