@@ -35,8 +35,8 @@ const getCoursesWithCategoriesVideos = async (req, res) => {
 const uUpdateCourse = async (req, res) => {
   try {
     const { id } = req.params;
-    const {description} = req.body
-    const result = await CoursesServices.uUpdateCourse(description,id);
+    const { description } = req.body;
+    const result = await CoursesServices.uUpdateCourse(description, id);
     res.json(result);
   } catch (error) {
     res.status(400).json(error.message);
@@ -54,4 +54,4 @@ const getCoursesWithAllcategories = async (req, res) => {
   }
 }
 
-module.exports = { getAllCourses, getCoursesWithAllcategories, createCourse, getCoursesWithCategoriesVideos,uUpdateCourse }
+module.exports = { getAllCourses, getCoursesWithAllcategories, createCourse, getCoursesWithCategoriesVideos, uUpdateCourse }

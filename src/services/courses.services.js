@@ -46,10 +46,10 @@ class CoursesServices {
     }
   }
 
-  static async uUpdateCourse (description, id){
+  static async uUpdateCourse(description, id) {
     try {
-      const result =await Courses.update({description},{
-        where:{id}
+      const result = await Courses.update({ description }, {
+        where: { id }
       });
       return result;
     } catch (error) {

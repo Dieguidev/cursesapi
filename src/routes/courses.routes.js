@@ -12,6 +12,6 @@ router.get('/courses/:id/coursesAdnVideos', getCoursesWithAllcategories);
 
 router.post('/courses', createCourse);
 
-router.put('/courses/:id',uUpdateCourse)
+router.put('/courses/:id', uUpdateCourse)
 
 module.exports = router;
